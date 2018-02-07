@@ -13,7 +13,8 @@ public class RedmondKarlTesting {
     ArrayList<Period> discountPeriods;
     ArrayList<Period> normalPeriods;
 
-    //Tests for Rate Constructor
+    //=========================================Tests for Rate Constructor=============================================
+    // Set Period arrays to be used in Rate Constructor, these arrays will be used accross 
     @Before
     public void beforeTest(){
         discountPeriods= new ArrayList<Period>(){{
