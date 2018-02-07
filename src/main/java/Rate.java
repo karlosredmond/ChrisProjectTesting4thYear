@@ -10,8 +10,7 @@ public class Rate {
     public Rate(CarParkKind kind, BigDecimal normalRate, BigDecimal discountedRate, ArrayList<Period> discountPeriods, ArrayList<Period> normalPeriods) throws IllegalArgumentException{
         this.kind = kind;
         //Checks If normalRate > 0
-        if(normalRate.compareTo(new BigDecimal(0)) < 0){
-
+        if(normalRate.compareTo(new BigDecimal(0)) < 1){
             throw new IllegalArgumentException();
         }
     }
