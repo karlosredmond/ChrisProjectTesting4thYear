@@ -87,13 +87,13 @@ public class RedmondKarlTesting {
     }
 
     // Test 10. Aribrary Number test for discount
-    @org.junit.Test (expected = IllegalArgumentException.class)
+    @org.junit.Test
     public void discountRateArbitraryNumber(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(11),new BigDecimal(10),discountPeriods,normalPeriods);
     }
 
     // Test 11. discountRate Max Value
-    @org.junit.Test (expected = IllegalArgumentException.class)
+    @org.junit.Test
     public void discountRateMaxValue(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(1000000000),new BigDecimal(999999999),discountPeriods,normalPeriods);
     }
@@ -149,7 +149,6 @@ public class RedmondKarlTesting {
         int i=0;
         while(i < 25){
             discountPeriods.add(new Period(i,i+1));
-            System.out.println(i + "," + (i + 1));
             i++;
         }
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
@@ -163,7 +162,6 @@ public class RedmondKarlTesting {
         int i=0;
         while(i < 23){
             discountPeriods.add(new Period(i,i+1));
-            System.out.println(i + "," + (i + 1));
             i++;
         }
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);

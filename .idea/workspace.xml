@@ -55,24 +55,24 @@
       <file leaf-file-name="RedmondKarlTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+            <state relative-caret-position="-2922">
+              <caret line="95" column="19" lean-forward="false" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5726#5734#0" expanded="true" />
-                <element signature="e#5794#5802#0" expanded="true" />
-                <element signature="e#6276#6284#0" expanded="true" />
-                <element signature="e#6344#6352#0" expanded="true" />
-                <element signature="e#6824#6832#0" expanded="true" />
-                <element signature="e#6892#6900#0" expanded="true" />
-                <element signature="e#7350#7358#0" expanded="true" />
-                <element signature="e#9542#9550#0" expanded="true" />
-                <element signature="e#9609#9617#0" expanded="true" />
-                <element signature="e#10027#10035#0" expanded="true" />
-                <element signature="e#10094#10102#0" expanded="true" />
-                <element signature="e#10559#10567#0" expanded="true" />
-                <element signature="e#10626#10634#0" expanded="true" />
-                <element signature="e#11175#11183#0" expanded="true" />
+                <element signature="e#5638#5646#0" expanded="true" />
+                <element signature="e#5706#5714#0" expanded="true" />
+                <element signature="e#6188#6196#0" expanded="true" />
+                <element signature="e#6256#6264#0" expanded="true" />
+                <element signature="e#6685#6693#0" expanded="true" />
+                <element signature="e#6753#6761#0" expanded="true" />
+                <element signature="e#7160#7168#0" expanded="true" />
+                <element signature="e#9352#9360#0" expanded="true" />
+                <element signature="e#9419#9427#0" expanded="true" />
+                <element signature="e#9837#9845#0" expanded="true" />
+                <element signature="e#9904#9912#0" expanded="true" />
+                <element signature="e#10369#10377#0" expanded="true" />
+                <element signature="e#10436#10444#0" expanded="true" />
+                <element signature="e#10985#10993#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -895,17 +895,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517999931715</updated>
-      <workItem from="1517999936258" duration="13260000" />
+      <workItem from="1517999936258" duration="13844000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="RedmondKarlTesting - 2018.02.07 at 11h 41m 13s.xml">
-      <configuration name="RedmondKarlTesting" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="RedmondKarlTesting - 2018.02.07 at 11h 41m 44s.xml">
-      <configuration name="RedmondKarlTesting" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="RedmondKarlTesting - 2018.02.07 at 14h 07m 38s.xml">
       <configuration name="RedmondKarlTesting" configurationId="JUnit" />
     </history-entry>
@@ -913,6 +907,15 @@
       <configuration name="RedmondKarlTesting" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RedmondKarlTesting - 2018.02.07 at 15h 56m 10s.xml">
+      <configuration name="RedmondKarlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedmondKarlTesting - 2018.02.07 at 17h 36m 28s.xml">
+      <configuration name="RedmondKarlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedmondKarlTesting - 2018.02.07 at 17h 37m 04s.xml">
+      <configuration name="RedmondKarlTesting" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedmondKarlTesting - 2018.02.07 at 17h 46m 25s.xml">
       <configuration name="RedmondKarlTesting" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RedmondKarlTesting_discountPeriodMaxLength - 2018.02.07 at 15h 05m 10s.xml">
@@ -927,16 +930,13 @@
     <history-entry file="RedmondKarlTesting_discountPeriodMaxLength - 2018.02.07 at 15h 15m 23s.xml">
       <configuration name="RedmondKarlTesting.discountPeriodMaxLength" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RedmondKarlTesting_kindValid - 2018.02.07 at 11h 41m 08s.xml">
-      <configuration name="RedmondKarlTesting.kindValid" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13260000" />
+    <option name="totallyTimeSpent" value="13844000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -947,7 +947,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2848769" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2848769" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1013,24 +1013,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+        <state relative-caret-position="-2922">
+          <caret line="95" column="19" lean-forward="false" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5726#5734#0" expanded="true" />
-            <element signature="e#5794#5802#0" expanded="true" />
-            <element signature="e#6276#6284#0" expanded="true" />
-            <element signature="e#6344#6352#0" expanded="true" />
-            <element signature="e#6824#6832#0" expanded="true" />
-            <element signature="e#6892#6900#0" expanded="true" />
-            <element signature="e#7350#7358#0" expanded="true" />
-            <element signature="e#9542#9550#0" expanded="true" />
-            <element signature="e#9609#9617#0" expanded="true" />
-            <element signature="e#10027#10035#0" expanded="true" />
-            <element signature="e#10094#10102#0" expanded="true" />
-            <element signature="e#10559#10567#0" expanded="true" />
-            <element signature="e#10626#10634#0" expanded="true" />
-            <element signature="e#11175#11183#0" expanded="true" />
+            <element signature="e#5638#5646#0" expanded="true" />
+            <element signature="e#5706#5714#0" expanded="true" />
+            <element signature="e#6188#6196#0" expanded="true" />
+            <element signature="e#6256#6264#0" expanded="true" />
+            <element signature="e#6685#6693#0" expanded="true" />
+            <element signature="e#6753#6761#0" expanded="true" />
+            <element signature="e#7160#7168#0" expanded="true" />
+            <element signature="e#9352#9360#0" expanded="true" />
+            <element signature="e#9419#9427#0" expanded="true" />
+            <element signature="e#9837#9845#0" expanded="true" />
+            <element signature="e#9904#9912#0" expanded="true" />
+            <element signature="e#10369#10377#0" expanded="true" />
+            <element signature="e#10436#10444#0" expanded="true" />
+            <element signature="e#10985#10993#0" expanded="true" />
           </folding>
         </state>
       </provider>
