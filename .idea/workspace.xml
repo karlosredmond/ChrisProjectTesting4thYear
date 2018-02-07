@@ -55,20 +55,24 @@
       <file leaf-file-name="RedmondKarlTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2043">
-              <caret line="141" column="51" lean-forward="false" selection-start-line="141" selection-start-column="51" selection-end-line="141" selection-end-column="51" />
+            <state relative-caret-position="210">
+              <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5857#5865#0" expanded="true" />
-                <element signature="e#5925#5933#0" expanded="true" />
-                <element signature="e#6407#6415#0" expanded="true" />
-                <element signature="e#6475#6483#0" expanded="true" />
-                <element signature="e#6955#6963#0" expanded="true" />
-                <element signature="e#7023#7031#0" expanded="true" />
-                <element signature="e#7481#7489#0" expanded="true" />
-                <element signature="e#9673#9681#0" expanded="true" />
-                <element signature="e#9740#9748#0" expanded="true" />
-                <element signature="e#10289#10297#0" expanded="true" />
+                <element signature="e#5726#5734#0" expanded="true" />
+                <element signature="e#5794#5802#0" expanded="true" />
+                <element signature="e#6276#6284#0" expanded="true" />
+                <element signature="e#6344#6352#0" expanded="true" />
+                <element signature="e#6824#6832#0" expanded="true" />
+                <element signature="e#6892#6900#0" expanded="true" />
+                <element signature="e#7350#7358#0" expanded="true" />
+                <element signature="e#9542#9550#0" expanded="true" />
+                <element signature="e#9609#9617#0" expanded="true" />
+                <element signature="e#10027#10035#0" expanded="true" />
+                <element signature="e#10094#10102#0" expanded="true" />
+                <element signature="e#10559#10567#0" expanded="true" />
+                <element signature="e#10626#10634#0" expanded="true" />
+                <element signature="e#11175#11183#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -373,8 +377,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/Period.java" />
         <option value="$PROJECT_DIR$/src/main/java/CarParkKind.java" />
-        <option value="$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java" />
         <option value="$PROJECT_DIR$/src/main/java/Rate.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java" />
       </list>
     </option>
   </component>
@@ -891,7 +895,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517999931715</updated>
-      <workItem from="1517999936258" duration="12088000" />
+      <workItem from="1517999936258" duration="13260000" />
     </task>
     <servers />
   </component>
@@ -928,7 +932,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12088000" />
+    <option name="totallyTimeSpent" value="13260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1009,20 +1013,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/RedmondKarlTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2043">
-          <caret line="141" column="51" lean-forward="false" selection-start-line="141" selection-start-column="51" selection-end-line="141" selection-end-column="51" />
+        <state relative-caret-position="210">
+          <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5857#5865#0" expanded="true" />
-            <element signature="e#5925#5933#0" expanded="true" />
-            <element signature="e#6407#6415#0" expanded="true" />
-            <element signature="e#6475#6483#0" expanded="true" />
-            <element signature="e#6955#6963#0" expanded="true" />
-            <element signature="e#7023#7031#0" expanded="true" />
-            <element signature="e#7481#7489#0" expanded="true" />
-            <element signature="e#9673#9681#0" expanded="true" />
-            <element signature="e#9740#9748#0" expanded="true" />
-            <element signature="e#10289#10297#0" expanded="true" />
+            <element signature="e#5726#5734#0" expanded="true" />
+            <element signature="e#5794#5802#0" expanded="true" />
+            <element signature="e#6276#6284#0" expanded="true" />
+            <element signature="e#6344#6352#0" expanded="true" />
+            <element signature="e#6824#6832#0" expanded="true" />
+            <element signature="e#6892#6900#0" expanded="true" />
+            <element signature="e#7350#7358#0" expanded="true" />
+            <element signature="e#9542#9550#0" expanded="true" />
+            <element signature="e#9609#9617#0" expanded="true" />
+            <element signature="e#10027#10035#0" expanded="true" />
+            <element signature="e#10094#10102#0" expanded="true" />
+            <element signature="e#10559#10567#0" expanded="true" />
+            <element signature="e#10626#10634#0" expanded="true" />
+            <element signature="e#11175#11183#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,8 +1,4 @@
-import com.sun.xml.internal.xsom.impl.scd.Iterators;
 import org.junit.*;
-import org.junit.rules.ExpectedException;
-import sun.tools.java.SyntaxError;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -243,7 +239,33 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 25. normalPeriod empty
+    // Test 25. normalPeriod Length of 23
+    @org.junit.Test
+    public void normalPeriodLengthOKBoundary(){
+        ArrayList<Period> discountPeriods = new ArrayList<Period>();
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        int i=0;
+        while(i < 23){
+            normalPeriods.add(new Period(i,i+1));
+            i++;
+        }
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+    // Test 26. normalPeriod length of 25
+    @org.junit.Test (expected = IllegalArgumentException.class)
+    public void normalPeriodLengthNotOKBoundary(){
+        ArrayList<Period> discountPeriods = new ArrayList<Period>();
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        int i=0;
+        while(i < 25){
+            normalPeriods.add(new Period(i,i+1));
+            i++;
+        }
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+    // Test 27. normalPeriod empty
     @org.junit.Test
     public void normalPeriodEmpty(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -255,7 +277,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 26. normalPeriod does not overlap with discountPeriod
+    // Test 28. normalPeriod does not overlap with discountPeriod
     @org.junit.Test
     public void normalPeriodDoesNotOverlapWithDiscountPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -270,7 +292,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 27. normalPeriod overlap
+    // Test 29. normalPeriod overlap
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void normalPeriodOverlap(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -283,7 +305,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 28. normalPeriod overlaps with discountPeriod
+    // Test 30. normalPeriod overlaps with discountPeriod
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void normalPeriodOverlapsWithDiscountPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -297,13 +319,5 @@ public class RedmondKarlTesting {
         }};
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
-    //
-    //
-    @org.junit.Test (expected = IllegalArgumentException.class)
-    public void normalRateLessThanZero(){
-        Rate r = new Rate(CarParkKind.MANAGEMENT, new BigDecimal(-1),new BigDecimal(-1),discountPeriods,normalPeriods);
-    }
-
-
 }
 
