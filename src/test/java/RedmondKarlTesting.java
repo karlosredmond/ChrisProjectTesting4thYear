@@ -13,6 +13,8 @@ public class RedmondKarlTesting {
     ArrayList<Period> normalPeriods;
     ArrayList<Period> calculateChargeDiscountPeriod;
     ArrayList<Period> calculateChargeNormalPeriod;
+    BigDecimal b;
+    Period p;
 
     //=========================================Tests for Rate Constructor=============================================
     // Set Period arrays to be used in Rate Constructor, these arrays will be used across most test, unique arrays
@@ -39,6 +41,7 @@ public class RedmondKarlTesting {
             add(new Period(2,4));
             add(new Period(18,19));
         }};
+        b = null;
     }
 
     // Test 1. Check Constructor works with Kind, as kind will be an enum, invalid entries will be captured at compile time,
@@ -96,55 +99,68 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal('B'),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 9.
+    // Test 9. normalRate set to null
+    @org.junit.Test (expected = NullPointerException.class)
+    public void normalRateNull(){
+        Rate r = new Rate(CarParkKind.STUDENT, b,new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+    // Test 10.
     @org.junit.Test
     public void discountRateEqual1(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(3),new BigDecimal(1),discountPeriods,normalPeriods);
     }
 
-    // Test 10. Aribrary Number test for discount
+    // Test 11. Aribrary Number test for discount
     @org.junit.Test
     public void discountRateArbitraryNumber(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(11),new BigDecimal(10),discountPeriods,normalPeriods);
     }
 
-    // Test 11. discountRate Max Value
+    // Test 12. discountRate Max Value
     @org.junit.Test
     public void discountRateMaxValue(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(1000000000),new BigDecimal(999999999),discountPeriods,normalPeriods);
     }
 
-    // Test 12. discountRate < 0
+    // Test 13. discountRate < 0
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountRateLessThan0(){
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(100),new BigDecimal(-1),discountPeriods,normalPeriods);
     }
 
-    // Test 13. discountRate = 0
+    // Test 14. discountRate = 0
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountRateEqual0(){
         Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(100),new BigDecimal(0),discountPeriods,normalPeriods);
     }
 
-    // Test 14. discountRate Invalid Character
+    // Test 15. discountRate Invalid Character
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountRateInvalidCharacter(){
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5),new BigDecimal('F'),discountPeriods,normalPeriods);
     }
 
-    // Test 15. normalRate > discountRate
+
+    // Test 16. discountRate = null
+    @org.junit.Test (expected = NullPointerException.class)
+    public void discountRateIsNull(){
+        Rate r = new Rate(CarParkKind.MANAGEMENT, new BigDecimal(5),b ,discountPeriods,normalPeriods);
+    }
+
+    // Test 17. normalRate > discountRate
     @org.junit.Test
     public void normalRateGreaterThanDiscountRate(){
         Rate r = new Rate(CarParkKind.MANAGEMENT, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 16. normalRate > discountRate
+    // Test 18. normalRate > discountRate
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountRateGreaterThanNormalRated(){
         Rate r = new Rate(CarParkKind.MANAGEMENT, new BigDecimal(2),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 17. discountPeriod max length
+    // Test 19. discountPeriod max length
     @org.junit.Test
     public void discountPeriodMaxLength(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>() ;
@@ -157,7 +173,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 18. discountPeriod max length boundary
+    // Test 20. discountPeriod max length boundary
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountPeriodMaxLengthBoundaryAbove(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>() ;
@@ -170,7 +186,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 19. discountPeriod max length
+    // Test 21. discountPeriod max length
     @org.junit.Test
     public void discountPeriodMaxLengthBoundaryUnder(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>() ;
@@ -183,7 +199,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 20. discountPeriod empty
+    // Test 22. discountPeriod empty
     @org.junit.Test
     public void discountPeriodEmpty(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>() ;
@@ -197,7 +213,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 21. discountPeriod does not overlap with normal period
+    // Test 23. discountPeriod does not overlap with normal period
     @org.junit.Test
     public void discountPeriodDoesNotOverlapWithNormalPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -211,7 +227,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 22. discountPeriod overlap
+    // Test 24. discountPeriod overlap
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountPeriodOverlap(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -227,7 +243,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 23. discountPeriod overlaps with normal period
+    // Test 25. discountPeriod overlaps with normal period
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void discountPeriodOverlapWithNormalPeriods(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -240,7 +256,24 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 24. normalPeriod lenght Max
+    // Test 26. discountPeriod Array has null pointer object
+    @org.junit.Test (expected = NullPointerException.class)
+    public void discountPeriodNullPointer(){
+        p = null;
+        ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
+            add(p);
+        }};
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        int i=0;
+        while(i < 24){
+            normalPeriods.add(new Period(i,i+1));
+            i++;
+        }
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+
+    // Test 27. normalPeriod lenght Max
     @org.junit.Test
     public void normalPeriodLengthMax(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>();
@@ -253,7 +286,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 25. normalPeriod Length of 23
+    // Test 28. normalPeriod Length of 23
     @org.junit.Test
     public void normalPeriodLengthOKBoundary(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>();
@@ -266,7 +299,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 26. normalPeriod length of 25
+    // Test 29. normalPeriod length of 25
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void normalPeriodLengthNotOKBoundary(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>();
@@ -279,7 +312,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 27. normalPeriod empty
+    // Test 30. normalPeriod empty
     @org.junit.Test
     public void normalPeriodEmpty(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -291,7 +324,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 28. normalPeriod does not overlap with discountPeriod
+    // Test 31. normalPeriod does not overlap with discountPeriod
     @org.junit.Test
     public void normalPeriodDoesNotOverlapWithDiscountPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -306,7 +339,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 29. normalPeriod overlap
+    // Test 32. normalPeriod overlap
     @org.junit.Test (expected = IllegalArgumentException.class)
     public void normalPeriodOverlap(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -319,7 +352,7 @@ public class RedmondKarlTesting {
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
-    // Test 30. normalPeriod overlaps with discountPeriod
+    // Test 33. normalPeriod overlaps with discountPeriod
     @org.junit.Test
     public void normalPeriodOverlapsWithDiscountPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
@@ -331,6 +364,26 @@ public class RedmondKarlTesting {
             add(new Period(4,5));
             add(new Period(6,7));
         }};
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+    // Test 34. normalPeriod has nul pointer object
+    @org.junit.Test (expected = NullPointerException.class)
+    public void normalPeriodNullPointer(){
+        ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
+            add(new Period(5,7));
+        }};
+        ArrayList<Period> normalPeriods = new ArrayList<Period>(){{
+            add(p);
+        }};
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+    // Test 35. normalPeriod & discountPeriod has empty arrays
+    @org.junit.Test
+    public void normalPeriodsAndDiscountPeriodsEmpty(){
+        ArrayList<Period> discountPeriods = new ArrayList<Period>();
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
     }
 
