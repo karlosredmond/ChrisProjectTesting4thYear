@@ -2,6 +2,8 @@ import org.junit.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
+
 
 /**
  * Created by Karl Redmond on 07/02/2018.
@@ -9,6 +11,8 @@ import java.util.ArrayList;
 public class RedmondKarlTesting {
     ArrayList<Period> discountPeriods;
     ArrayList<Period> normalPeriods;
+    ArrayList<Period> calculateChargeDiscountPeriod;
+    ArrayList<Period> calculateChargeNormalPeriod;
 
     //=========================================Tests for Rate Constructor=============================================
     // Set Period arrays to be used in Rate Constructor, these arrays will be used across most test, unique arrays
@@ -19,8 +23,20 @@ public class RedmondKarlTesting {
         discountPeriods= new ArrayList<Period>(){{
             add(new Period(17,18));
         }};
-        ArrayList<Period> normalPeriods= new ArrayList<Period>(){{
+
+        normalPeriods= new ArrayList<Period>(){{
             add(new Period(14,17));
+            add(new Period(18,19));
+        }};
+
+        calculateChargeDiscountPeriod = new ArrayList<Period>(){{
+            add(new Period(0,2));
+            add(new Period(13,17));
+            add(new Period(23,24));
+        }};
+
+        calculateChargeNormalPeriod = new ArrayList<Period>(){{
+            add(new Period(2,4));
             add(new Period(18,19));
         }};
     }
@@ -304,7 +320,7 @@ public class RedmondKarlTesting {
     }
 
     // Test 30. normalPeriod overlaps with discountPeriod
-    @org.junit.Test (expected = IllegalArgumentException.class)
+    @org.junit.Test
     public void normalPeriodOverlapsWithDiscountPeriod(){
         ArrayList<Period> discountPeriods = new ArrayList<Period>(){{
             add(new Period(5,7));
@@ -316,6 +332,119 @@ public class RedmondKarlTesting {
             add(new Period(6,7));
         }};
         Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(6),new BigDecimal(5),discountPeriods,normalPeriods);
+    }
+
+
+
+    //=========================================Tests for calculate(Period)=============================================
+
+    // Test 1. boundary check for discountPeriod lower limit
+    @org.junit.Test
+    public void discountPeriodsCalculateCharge12am_2amBoundary(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(4),new BigDecimal(1),
+                calculateChargeDiscountPeriod,calculateChargeNormalPeriod);
+        Period p = new Period(0,2);
+        assertEquals(BigDecimal.valueOf(2), r.calculate(p));
+    }
+
+    //Test 2. Boundary check for discountPeriod upper limit
+    @org.junit.Test
+    public void discountPeriodsCalculateCharge11pm_12amBoundary(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(4),new BigDecimal(1),
+                calculateChargeDiscountPeriod,calculateChargeNormalPeriod);
+        Period p = new Period(23,24);
+        assertEquals(BigDecimal.valueOf(1), r.calculate(p));
+    }
+
+    //Test 3. Arbitrary check for discountPeriod
+    @org.junit.Test
+    public void discountPeriodsCalculateChargeArbitraryEvening(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(4),new BigDecimal(1),
+                calculateChargeDiscountPeriod,calculateChargeNormalPeriod);
+        Period p = new Period(14,17);
+        assertEquals(BigDecimal.valueOf(3), r.calculate(p));
+    }
+
+    //Test 4. Arbitrary check morning
+    @org.junit.Test
+    public void discountPeriodsCalculateChargeArbitraryNoCharge(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(4),new BigDecimal(1),
+                calculateChargeDiscountPeriod,calculateChargeNormalPeriod);
+        Period p = new Period(4,6);
+        assertEquals(BigDecimal.valueOf(0), r.calculate(p));
+    }
+
+    //Test 5. normalPeriods boundary check lower
+    @org.junit.Test
+    public void normalPeriodsCalculateChargeBoundaryLower(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(0,1);
+        assertEquals(BigDecimal.valueOf(3), r.calculate(p));
+    }
+
+    //Test 6. normalPeriods boundary check upper
+    @org.junit.Test
+    public void normalPeriodsCalculateChargeBoundaryUpper(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(23,24);
+        assertEquals(BigDecimal.valueOf(3), r.calculate(p));
+    }
+
+    //Test 7. normalPeriods Arbitrary
+    @org.junit.Test
+    public void normalPeriodsCalculateChargeArbitrary(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(14,17);
+        assertEquals(BigDecimal.valueOf(9), r.calculate(p));
+    }
+
+    //Test 8. normalPeriods no Charge
+    @org.junit.Test
+    public void normalPeriodsCalculateChargeArbitraryNoCost(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(12,13);
+        assertEquals(BigDecimal.valueOf(0), r.calculate(p));
+    }
+
+    //Test 9. free and normal period crossover
+    @org.junit.Test
+    public void calculateChargeFreeAndNormalCrossOver(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(16,18);
+        assertEquals(BigDecimal.valueOf(3), r.calculate(p));
+    }
+
+    //Test 10. normal and discount period crossover
+    @org.junit.Test
+    public void calculateChargeNormalAndDiscountCrossOver(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(1,3);
+        assertEquals(BigDecimal.valueOf(5), r.calculate(p));
+    }
+
+    //Test 11. discount and free period crossover
+    @org.junit.Test
+    public void calculateChargeDiscountAndFreeCrossOver(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(18,20);
+        assertEquals(BigDecimal.valueOf(2), r.calculate(p));
+    }
+
+    //Test 12. free and normal and discount period crossover
+    @org.junit.Test
+    public void calculateChargeFreeAndNormalAndDiscountCrossover(){
+        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(3),new BigDecimal(2),
+                calculateChargeNormalPeriod,calculateChargeDiscountPeriod);
+        Period p = new Period(16,24);
+        assertEquals(BigDecimal.valueOf(8), r.calculate(p));
+
     }
 }
 
